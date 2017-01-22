@@ -1,0 +1,73 @@
+
+1. 모든 테이블의 컬럼은 SEQ, REG_DATE, DEL_FLAG 를 가진다.
+2. 다른 테이블의 SEQ값을 바라보는 경우 뒤에 '_SEQ' 를 붙여준다.
+3. SEQ 를 제외한 모든 컬럼의 기본값은 NULL 이다.
+
+
+CREATE TABLE IF NOT EXISTS `jelting_roomList` (
+  `seq` int(10) NOT NULL AUTO_INCREMENT COMMENT '시퀀스 번호',
+  `reg_date` datetime DEFAULT NULL COMMENT '등록 날짜',
+  `del_flag` varchar(2) DEFAULT NULL COMMENT '삭제 여부',
+  `reg_user_seq` int(10) DEFAULT NULL COMMENT '룸 생성 유저',
+  `room_class_seq` int(10) DEFAULT NULL COMMENT '룸 속성',
+  `name` varchar(40) DEFAULT NULL COMMENT '룸 이름',
+  `open` int(1) DEFAULT NULL COMMENT '공개여부 / 1 = 공개',
+  PRIMARY KEY (`seq`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;
+
+
+CREATE TABLE IF NOT EXISTS `jelting_roomClass` (
+  `seq` int(10) NOT NULL AUTO_INCREMENT COMMENT '시퀀스 번호',
+  `reg_date` datetime DEFAULT NULL COMMENT '등록 날짜',
+  `del_flag` varchar(2) DEFAULT NULL COMMENT '삭제 여부',
+  `name` varchar(40) DEFAULT NULL COMMENT '룸 속성 이름',
+  PRIMARY KEY (`seq`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;
+
+
+CREATE TABLE IF NOT EXISTS `jelting_userList` (
+  `seq` int(10) NOT NULL AUTO_INCREMENT COMMENT '시퀀스 번호',
+  `reg_date` datetime DEFAULT NULL COMMENT '등록 날짜',
+  `del_flag` varchar(2) DEFAULT NULL COMMENT '삭제 여부',
+  `join_room_seq` int(10) DEFAULT NULL COMMENT '접속한 룸',
+  `ip` int(20) DEFAULT NULL COMMENT '아이피',
+  `connect` varchar(2) DEFAULT NULL COMMENT '접속여부 / Y = 접속중',
+  `name` varchar(40) DEFAULT NULL COMMENT '이름',
+  `last_access` datetime DEFAULT NULL COMMENT '마지막 접속 날짜',
+  PRIMARY KEY (`seq`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;
+
+
+CREATE TABLE IF NOT EXISTS `jelting_chatApply` (
+  `seq` int(10) NOT NULL AUTO_INCREMENT COMMENT '시퀀스 번호',
+  `reg_date` datetime DEFAULT NULL COMMENT '등록 날짜',
+  `del_flag` varchar(2) DEFAULT NULL COMMENT '삭제 여부',
+  `reg_user_seq` int(10) DEFAULT NULL COMMENT '등록 유저',
+  `room_list_seq` int(10) DEFAULT NULL COMMENT '룸 시퀀스',
+  `state_seq` int(10) DEFAULT NULL COMMENT '상태',
+  `talk` text DEFAULT NULL COMMENT '대화내용',
+  PRIMARY KEY (`seq`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;
+
+
+CREATE TABLE IF NOT EXISTS `jelting_chatState` (
+  `seq` int(10) NOT NULL AUTO_INCREMENT COMMENT '시퀀스 번호',
+  `reg_date` datetime DEFAULT NULL COMMENT '등록 날짜',
+  `del_flag` varchar(2) DEFAULT NULL COMMENT '삭제 여부',
+  `reg_user_seq` int(10) DEFAULT NULL COMMENT '등록 유저',
+  `name` varchar(40) DEFAULT NULL COMMENT '상태 이름',
+  PRIMARY KEY (`seq`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;
+
+
+CREATE TABLE IF NOT EXISTS `jelting_modifyList` (
+  `seq` int(10) NOT NULL AUTO_INCREMENT COMMENT '시퀀스 번호',
+  `reg_date` datetime DEFAULT NULL COMMENT '등록 날짜',
+  `del_flag` varchar(2) DEFAULT NULL COMMENT '삭제 여부',
+  `reg_user_seq` int(10) DEFAULT NULL COMMENT '수정한 유저',
+  `table_name` varchar(40) DEFAULT NULL COMMENT '테이블 이름',
+  `table_column` varchar(40) DEFAULT NULL COMMENT '테이블 컬럼 이름',
+  `before_data` varchar(200) DEFAULT NULL COMMENT '변경 전 데이터',
+  `after_data` varchar(200) DEFAULT NULL COMMENT '변경 후 데이터',
+  PRIMARY KEY (`seq`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;
