@@ -35,7 +35,7 @@ function selectTable($name, $column="*", $where="", $order="REG_DATE DESC", $lim
 			FROM
 				".$table[$name]['name']."
 
-			WHERE (del_flag IS NULL OR del_flag != 'Y')
+			WHERE ".$table['where']['del_flag']."
 				".$where."
 			ORDER BY
 				".$order."
@@ -89,7 +89,7 @@ function countTable($name, $where="") {
 	$query  = " 
 			SELECT count(*) as cnt FROM
 				".$table[$name]['name']."
-			WHERE (del_flag IS NULL OR del_flag != 'Y')
+			WHERE ".$table['where']['del_flag']."
 				".$where."
 	";
 
@@ -125,7 +125,7 @@ function updateTable($name, $data, $where="", $check="Y") {
 				".$table[$name]['name']."
 			SET
 				".$value."
-			WHERE (del_flag IS NULL OR del_flag != 'Y')
+			WHERE ".$table['where']['del_flag']."
 				".$where."
 	";
 

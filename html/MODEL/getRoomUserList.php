@@ -12,7 +12,7 @@ $row = selectTable($tableName, $tableColumn, $tableWhere);
 $room_seq = $row[0][0];
 
 // 접속한 방의 접속자 리스트를 가져온다.
-$nowTime = date("Y-m-d H:i:s", time()-5);
+$nowTime = date("Y-m-d H:i:s", time()-8);
 
 $tableName = "userList";
 $tableColumn = "name";

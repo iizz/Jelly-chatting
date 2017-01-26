@@ -22,6 +22,8 @@ $table['roomClass']['name'] = $table['mainTable']."_roomClass"; // 룸 속성
 $table['roomList']['name'] = $table['mainTable']."_roomList"; // 룸 리스트
 
 $table['userList']['name'] = $table['mainTable']."_userList"; // 유저 리스트
+
+$table['where']['del_flag'] = " (del_flag is null OR del_flag != 'Y') ";
 // [END] 테이블 이름 설정
 
 // [STR] 변수명

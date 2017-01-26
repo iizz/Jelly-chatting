@@ -3,7 +3,7 @@ $(document).ready(function() {
 	pageUpdate();
 	setInterval(function() {
 		pageUpdate();
-	}, 3000);
+	}, 5000);
 
 });
 		
