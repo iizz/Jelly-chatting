@@ -1,0 +1,98 @@
+/* ****************************************************************************
+ *
+ * Copyright 2017 Jelly Chatting. All right reserved.
+ *
+ * ****************************************************************************
+ * 
+ *  CREATOR : river0427@daum.net (Kim, Ga-ram)
+ *  DATE    : 2017. 01. 26
+ *  ENCODING: UTF-8
+ * 
+ *  DETAIL: 젤팅 전체 CSS
+ * 
+ *************************************************************************** */
+
+@import url(http://fonts.googleapis.com/earlyaccess/notosanskr.css);
+
+/*********** 공통 css 시작 **********/
+
+a,
+input,
+button {
+	transition: .4s ease;
+}
+
+ul {
+	list-style-type: none;
+	padding-left: 0;
+	margin-bottom: 0;
+}
+
+body {
+	font-family: 'Noto Sans KR', sans-serif;
+	font-size: 14px;
+	background-color: #fffa7d;
+	background-color: #9ae4ff;
+	background-color: #ffb9c5;
+}
+
+.container {
+	width: 80%;
+	max-width: 1500px;
+	padding: 0;
+	margin: 0 auto;
+/*	background-color: #9ae4ff;*/
+}
+
+.header {
+	
+}
+
+.header h1 {
+	font-family: 'Waiting for the Sunrise', cursive;
+	font-size: 2.5em;
+	text-align: center;
+}
+
+.footer {
+	text-align: center;
+}
+
+
+
+
+
+
+
+
+
+/* 우측 채팅창 */
+.chat-box {
+	width: 70%;
+	float: left;
+}
+
+.chat_area {
+	width: 80%;
+}
+
+.chat_area,
+.chat-menu-box {
+	background-color: #fff;
+	padding: 40px;
+	border-radius: 40px;
+}
+
+
+
+
+
+
+
+
+
+/* 좌측 메뉴 */
+.chat-menu-box {
+	width: 30%;
+	float: left;
+}
