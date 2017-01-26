@@ -9,11 +9,14 @@ $route['mainPath'] = "/host/home1/jelting/html/";
 // 기본값
 require_once($route['mainPath'].'INC/default.php');
 
-// 유저 정보
+// 유저 정보 함수
 require_once($route['mainPath'].'INC/userFunc.php');
 
-// 데이터베이스
+// 데이터베이스 함수
 require_once($route['mainPath'].'INC/databaseFunc.php');
+
+// 박스 함수
+require_once($route['mainPath'].'INC/boxFunc.php');
 
 // 설정
 require_once($route['mainPath'].'INC/config.php');

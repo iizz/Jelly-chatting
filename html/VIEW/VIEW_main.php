@@ -4,14 +4,7 @@
 		<div>
 			<input type="text" name="userNicknameInput" style="width:100px;" value="<?=$user['nickname']?>" readonly class="form-control" />
 			<select name="state" style="width:100px;" class="form-control">
-			<?
-				$tableName = "chatState";
-				$tableColumn = "seq, name";
-				$row = selectTable($tableName, $tableColumn);
-			?>
-			<? foreach ($row as $key => $val) { ?>
-				<option value="<?=$val[0]?>"><?=$val[1]?></option>
-			<? } ?>
+			<? getChattingStateSelectBox() ?>
 			</select>
 			<br />
 			<input type="text" name="content" onkeypress="if(event.keyCode==13) {putChattingContent();}" style="width:600px;" class="form-control" />
@@ -45,6 +38,19 @@
 		<div>
 			<div>방 접속자</div> 
 			<div class="roomUserList"></div> <!-- 방 접속자 리스트 -->
+		</div>
+		<hr />
+		<div>
+			<div>방 만들기</div> 
+			<input type="text" name="roomName" class="form-control" />
+			<select name="roomOpen">
+				<option value="1">공개</option>
+				<option value="0">비공개</option>
+			</select>
+			<select name="roomClass">
+				<? getRoomClassSelectBox() ?>
+			</select>
+			<input type="submit" value="방만들기" onclick="putRoomCreate(); return false;" class="btn btn-default" />
 		</div>
 	</div>
 	<div class="clearfix"></div>

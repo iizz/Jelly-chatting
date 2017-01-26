@@ -9,9 +9,13 @@ function getRoomList() {
 			for (i=0; i<data.length; i++) {
 				str += '<li style="font-size:14px;">';
 				for (j=0; j<data[i].length; j++) {
+					if (j == 0) {
+						var seq = data[i][j];
+					} 
 					str += data[i][j] + ' - ';
 				}
 				
+				str += '<button onclick="checkDeleteRoom(' + seq + '); return false;">삭제</button>';
 				str += '</li>'
 			} // End of for
 			$('.room_list').html('<ul>'+str+'</ul>');
@@ -61,3 +65,43 @@ function getRoomUserList() {
 		} // End of success
 	}) // End of $.ajax
 } // ENd of getRoomList()
+
+// 방 삭제 confirm
+function checkDeleteRoom(seq) {
+	if(confirm('정말로 삭제하시겠습니까?')) {
+		putRoomDelete(seq);
+	}
+}
+
+// 방 삭제
+function putRoomDelete(seq) {
+
+	var post_data = 'del_seq=' + seq;
+
+	$.ajax ({
+		type:"POST",
+		url:"MODEL/putRoomDelete.php",
+		data:post_data,
+		success:function(data) {
+			pageUpdate();
+		}
+	});
+
+}
+
+// 방 만들기
+function putRoomCreate() {
+
+	var post_data = $("form[name=main_form]").serialize();
+
+	$.ajax ({
+		type:"POST",
+		url:"MODEL/putRoomCreate.php",
+		data:post_data,
+		success:function(data) {
+			$('input[name=roomName]').val('');
+			pageUpdate();
+		}
+	});
+
+}
