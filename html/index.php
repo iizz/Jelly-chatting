@@ -1,4 +1,5 @@
 <?php
+
 	if (!$_POST['content']) {
 		$_POST['content'] = 'main';
 	}
