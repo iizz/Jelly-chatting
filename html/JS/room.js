@@ -7,7 +7,7 @@ function getRoomList() {
 		success:function(data) {
 			var str = '';
 			for (i=0; i<data.length; i++) {
-				str += '<li style="font-size:14px;">';
+				str += '<li>';
 
 				for (j=0; j<data[i].length; j++) {
 					if (j == 0) {
@@ -104,7 +104,7 @@ function getRoomUserList() {
 		success:function(data) {
 			var str = '';
 			for (i=0; i<data.length; i++) {
-				str += '<li style="font-size:14px;">';
+				str += '<li>';
 				for (j=0; j<data[i].length; j++) {
 					str += data[i][j];
 				}

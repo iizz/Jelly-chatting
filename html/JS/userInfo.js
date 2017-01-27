@@ -15,10 +15,7 @@ function changeUsername() {
 		url:"MODEL/putChangeName.php",
 		data:post_data,
 		success:function(data) {
-			var userName = $('input[name=userNameInput]').val();
-			$('.userNameSpan').html(userName);
-			$('input[name=userNicknameInput]').val(userName);
-			
+			pageUpdate();
 		}
 	});
 

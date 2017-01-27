@@ -22,6 +22,16 @@ button {
 	transition: .4s ease;
 }
 
+a,
+a:hover,
+a:focus {
+    color: #000;
+}
+a:hover,
+a:focus {
+    text-decoration: underline;
+}
+
 ul {
 	list-style-type: none;
 	padding-left: 0;
@@ -42,6 +52,11 @@ body {
 	padding: 0;
 	margin: 0 auto;
 /*	background-color: #9ae4ff;*/
+}
+
+.container .col-xs-12 {
+    padding-right: 0;
+    padding-left: 0;
 }
 
 .header {
@@ -68,21 +83,52 @@ body {
 
 /* 우측 채팅창 */
 .chat-box {
-	width: 70%;
-	float: left;
-}
-
-.chat-area {
 	width: 80%;
+    margin: 0 auto;
 }
 
-.chat-area,
-.chat-menu-box {
+.chat-box {
 	background-color: #fff;
 	padding: 40px;
 	border-radius: 40px;
 }
 
+.chat-area {
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    margin: 20px 0;
+}
+
+.chat-area ul {
+    height: 400px;
+    overflow: auto;
+}
+
+.chat-area ul > li {
+    line-height: 2;
+}
+
+.chat-nick,
+.chat-state,
+.chat-content,
+.chat-btn {
+    float: left;
+    margin-right: 1%;
+}
+
+.chat-nick,
+.chat-state {
+    width: 120px;
+}
+
+.chat-content {
+    width: 89%;
+}
+.chat-btn {
+    width: 10%;
+    margin-right: 0;
+}
 
 
 
@@ -93,6 +139,10 @@ body {
 
 /* 좌측 메뉴 */
 .chat-menu-box {
-	width: 30%;
-	float: left;
+	width: 20%;
+    height: 100%;
+    background-color: #fff;
+    position: fixed;
+    top: 0;
+    left: 0;
 }
