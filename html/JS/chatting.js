@@ -15,10 +15,10 @@ function getChattingContent() {
 					}
 				}
 				
-				str += '<button onclick="checkDeleteChatting(' + seq + '); return false;">삭제</button>';
+				//str += '<button onclick="checkDeleteChatting(' + seq + '); return false;">삭제</button>';
 				str += '</li>'
 			} // End of for
-			$('.chat_area').html('<ul>'+str+'</ul>');
+			$('.chat-area').html('<ul>'+str+'</ul>');
 		} // End of success
 	}) // End of $.ajax
 } // ENd of get_ajax()

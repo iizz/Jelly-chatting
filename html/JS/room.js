@@ -18,7 +18,7 @@ function getRoomList() {
 				str += '<button onclick="checkDeleteRoom(' + seq + '); return false;">삭제</button>';
 				str += '</li>'
 			} // End of for
-			$('.room_list').html('<ul>'+str+'</ul>');
+			$('.room-list').html('<ul>'+str+'</ul>');
 		} // End of success
 	}) // End of $.ajax
 } // ENd of getRoomList()

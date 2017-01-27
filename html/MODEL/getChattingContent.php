@@ -17,7 +17,7 @@ $room_seq = $row[0][0];
 $query  = " SELECT E.seq, E.room_name, E.user_name, F.name, E.talk, chat_reg_date FROM ";
 $query .= " (SELECT C.seq, C.talk, C.name as user_name, D.name as room_name, C.state_seq, chat_reg_date FROM ";
 $query .= " (SELECT A.seq, A.talk, A.reg_user_seq, A.room_list_seq, A.state_seq, B.name, A.reg_date as chat_reg_date FROM jelting_chatApply A ";
-$query .= " LEFT JOIN jelting_userList B ON A.reg_user_seq = B.seq WHERE (A.del_flag != 'Y' OR A.del_flag is null) AND A.room_list_seq = ".$room_seq." ORDER BY SEQ DESC Limit 20) C ";
+$query .= " LEFT JOIN jelting_userList B ON A.reg_user_seq = B.seq WHERE (A.del_flag != 'Y' OR A.del_flag is null) AND A.room_list_seq = ".$room_seq." ORDER BY SEQ DESC Limit 300) C ";
 $query .= " LEFT JOIN jelting_roomList D On C.room_list_seq = D.seq ORDER BY C.seq ASC) E ";
 $query .= " LEFT JOIN jelting_chatState F On E.state_seq = F.seq; ";
 $row = freeQuerySelect($query);

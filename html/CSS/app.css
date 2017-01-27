@@ -72,11 +72,11 @@ body {
 	float: left;
 }
 
-.chat_area {
+.chat-area {
 	width: 80%;
 }
 
-.chat_area,
+.chat-area,
 .chat-menu-box {
 	background-color: #fff;
 	padding: 40px;
