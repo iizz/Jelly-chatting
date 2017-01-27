@@ -1,5 +1,20 @@
 <div class="container">
 	<div class="chat-box">
+		<div>
+			<span>
+				접속한 방 번호 : <span class="joinRoomNumberSpan"><?=$user['roomNumber']?></span>
+			</span>
+			<span>
+				방 이름 :  <span class="joinRoomNameSpan"><?=$user['roomName']?></span>
+			</span>
+			<span>
+				<input type="submit" onclick="checkDeleteRoom(); return false;" value="룸 삭제" class="btn btn-default" />
+			</span>
+			<span>
+				룸 이름 변경 :  <input type="text" style="width:100px; display:inline-block" name="ModifyRoomNameInput" value="<?=$user['roomName']?>" class="form-control" onkeypress="if(event.keyCode==13) {checkModifyRoomName(); return false;}" />
+				<input type="submit" onclick="checkModifyRoomName(); return false;" value="룸이름 변경" class="btn btn-default" />
+			</span>
+		</div>
 		<div class="chat-area"></div> <!-- 채팅 내용 -->
 		<div>
 			<input type="text" name="userNicknameInput" style="width:100px;" value="<?=$user['nickname']?>" readonly class="form-control" />
@@ -20,20 +35,14 @@
 				당신의 이름 : <span class="userNameSpan"><?=$user['nickname']?></span>
 			</div>
 			<div>
-				<input type="text" value="<?=$user['nickname']?>" name="userNameInput" class="form-control" />
-				<input type="submit" value="닉네임 수정" onclick="changeUserName(); return false;" class="btn btn-default" />
+				<input type="text" value="<?=$user['nickname']?>" onkeypress="if(event.keyCode==13) {checkModifyUsername(); return false;}" name="userNameInput" class="form-control" />
+				<input type="submit" value="닉네임 수정" onclick="checkModifyUsername(); return false;" class="btn btn-default" />
 			</div>
 		</div>
 		<div>
 			<div>방 리스트</div>
 			<div class="room-list"></div> <!-- 방 리스트 -->
-			<div>
-				접속한 방 번호 : <span class="userRoomNumberSpan"><?=$user['roomNumber']?></span>
-			</div>
-			<div>
-				<input type="number" value="<?=$user['roomNumber']?>" onkeypress="if(event.keyCode==13) {changeRoomNumber(); return false;}" name="roomNumberInput" class="form-control" />
-				<input type="submit" value="방번호 변경" onclick="changeRoomNumber(); return false;" class="btn btn-default" />
-			</div>
+			
 		</div>
 		<div>
 			<div>방 접속자</div> 
@@ -42,7 +51,8 @@
 		<hr />
 		<div>
 			<div>방 만들기</div> 
-			<input type="text" name="roomName" onkeypress="if(event.keyCode==13) {putRoomCreate(); return false;}" class="form-control" />
+			<input type="text" name="roomName" onkeypress="if(event.keyCode==13) {checkCreateRoom(); return false;}" class="form-control" />
+			<input type="password" name="roomPasswordInput" onkeypress="if(event.keyCode==13) {checkCreateRoom(); return false;}" class="form-control" />
 			<select name="roomOpen">
 				<option value="1">공개</option>
 				<option value="0">비공개</option>
@@ -50,7 +60,7 @@
 			<select name="roomClass">
 				<? getRoomClassSelectBox() ?>
 			</select>
-			<input type="submit" value="방만들기" onclick="putRoomCreate(); return false;" class="btn btn-default" />
+			<input type="submit" value="방만들기" onclick="checkCreateRoom(); return false;" class="btn btn-default" />
 		</div>
 	</div>
 	<div class="clearfix"></div>

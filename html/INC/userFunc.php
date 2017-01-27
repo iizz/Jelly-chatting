@@ -78,6 +78,15 @@ function getUserRoomNumber($seq) {
 	return $row[0][0];
 }
 
+// 유저의 현재 접속한 방 번호를 가져온다.
+function getUserRoomName($seq) {
+	$tableName = "roomList";
+	$tableColumn = "name";
+	$tableWhere = "AND seq = ".$seq;
+	$row = selectTable($tableName,$tableColumn,$tableWhere);
+	return $row[0][0];
+}
+
 // 유저의 접속상태를 업데이트 한다.
 function userConnectUpdate($seq) {
 	$time = date("Y-m-d H:i:s");

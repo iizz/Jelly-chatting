@@ -1,10 +1,13 @@
 <?
 
-// [STR] 유저정보 설정
+// 유저정보
 $user['ip'] = $_SERVER['REMOTE_ADDR'];
 $user['seq'] = checkUserSeq($user['ip']);
 $user['nickname'] = getUserName($user['seq']);
+
+// 룸
 $user['roomNumber'] = getUserRoomNumber($user['seq']);
-// [END] 유저정보 설정
+$user['roomName'] = getUserRoomName($user['roomNumber']);
+
 
 ?>

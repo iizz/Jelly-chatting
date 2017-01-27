@@ -81,27 +81,6 @@ function insertTable($name, $data) {
 	dbClose($conn);
 }
 
-// 데이터베이스 COUNT
-function countTable($name, $where="") {
-	global $table;
-	$conn = dbConnect();
-	
-	$query  = " 
-			SELECT count(*) as cnt FROM
-				".$table[$name]['name']."
-			WHERE ".$table['where']['del_flag']."
-				".$where."
-	";
-
-	//echo $query; exit;
-
-	$result = mysqli_query($conn, $query);
-	$row= fetch_row($result);
-	dbClose($conn);
-
-	return $row[0][0];
-}
-
 // 데이터베이스 UPDATE
 function updateTable($name, $data, $where="", $check="Y") {
 	global $table;
@@ -133,6 +112,46 @@ function updateTable($name, $data, $where="", $check="Y") {
 
 	$result = mysqli_query($conn, $query);
 	dbClose($conn);
+}
+
+// 데이터베이스 COUNT
+function countTable($name, $where="") {
+	global $table;
+	$conn = dbConnect();
+	
+	$query  = " 
+			SELECT count(*) as cnt FROM
+				".$table[$name]['name']."
+			WHERE ".$table['where']['del_flag']."
+				".$where."
+	";
+
+	//echo $query; exit;
+
+	$result = mysqli_query($conn, $query);
+	$row= fetch_row($result);
+	dbClose($conn);
+
+	return $row[0][0];
+}
+
+// 데이터베이스 SELECT MAX SEQ
+function selectMaxSeqTable($name,  $column="seq") {
+	global $table;
+	$conn = dbConnect();
+	
+	$query  = " 
+			SELECT max(".$column.") as max FROM
+				".$table[$name]['name']."
+	";
+
+	//echo $query; exit;
+
+	$result = mysqli_query($conn, $query);
+	$row= fetch_row($result);
+	dbClose($conn);
+
+	return $row[0][0];
 }
 
 // 데이터베이스 수정내역 INSERT

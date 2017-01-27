@@ -1,10 +1,10 @@
 <? require('../INC/INC_main.php'); ?>
 <?
 
-$roomNumber = $_POST['roomNumberInput'];
+$roomNumber = $_POST['joinRoomNumber'];
 
 $tableName = "roomList";
-$tableColumn = "seq";
+$tableColumn = "seq, name";
 $tableWhere = "AND seq = ".$roomNumber;
 $row = selectTable($tableName, $tableColumn, $tableWhere);
 
@@ -13,8 +13,8 @@ if ($row) {
 	$tableData['join_room_seq'] = $roomNumber;
 	$tableWhere = 'AND seq = '.$user['seq'];
 	updateTable($tableName, $tableData, $tableWhere);
-} else {
-	echo "fail";
+
+	echo json_encode($row[0]);
 }
 
 ?>

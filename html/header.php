@@ -26,4 +26,5 @@
 		<h1>Jelly Chatting</h1>
 	</div>
 	<form name="main_form" method="POST">
-	<input type="hidden" name="joinRoomNumber" value="<?=$user['roomNumber']?>" />
+	<input type="hidden" name="joinRoomNumber" value="<?=$user['roomNumber']?>" /> <!-- 접속한 방 번호 -->
+	<input type="hidden" name="joinRoomName" value="<?=$user['roomName']?>" /> <!-- 접속한 방 이름 -->

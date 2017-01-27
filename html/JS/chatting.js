@@ -30,7 +30,7 @@ function checkDeleteChatting(seq) {
 	}
 }
 
-// 채팅내용 삭제
+// 채팅내용 삭제 실행
 function putChattingDelete(seq) {
 
 	var post_data = 'del_seq=' + seq;
