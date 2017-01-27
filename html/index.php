@@ -1,4 +1,4 @@
-<?
+<?php
 	if (!$_POST['location']) {
 		$_POST['location'] = 'main';
 	}
