@@ -14,7 +14,7 @@ $row = selectTable($tableName, $tableColumn, $tableWhere);
 $room_seq = $row[0][0];
 
 // 채팅내용 불러오기
-$query  = " SELECT E.seq, E.room_name, E.user_name, F.name, E.talk, chat_reg_date FROM ";
+$query  = " SELECT E.seq, E.user_name, F.name, E.talk, chat_reg_date FROM ";
 $query .= " (SELECT C.seq, C.talk, C.name as user_name, D.name as room_name, C.state_seq, chat_reg_date FROM ";
 $query .= " (SELECT A.seq, A.talk, A.reg_user_seq, A.room_list_seq, A.state_seq, B.name, A.reg_date as chat_reg_date FROM jelting_chatApply A ";
 $query .= " LEFT JOIN jelting_userList B ON A.reg_user_seq = B.seq WHERE (A.del_flag != 'Y' OR A.del_flag is null) AND A.room_list_seq = ".$room_seq." ORDER BY SEQ DESC Limit 300) C ";

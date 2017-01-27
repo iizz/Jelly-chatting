@@ -10,4 +10,6 @@ $tableData['name'] = $userName;
 $tableWhere = 'AND seq = '.$user['seq'];
 updateTable($tableName, $tableData, $tableWhere);
 
+echo $userName;
+
 ?>

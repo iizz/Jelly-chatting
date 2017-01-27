@@ -3,10 +3,11 @@ function getChattingContent() {
 	$.ajax({
 		url:'MODEL/getChattingContent.php',
 		dataType:'json',
+        async: false,
 		success:function(data) {
 			var str = '';
 			for (i=0; i<data.length; i++) {
-				str += '<li style="font-size:14px;">';
+				str += '<li>';
 				for (j=0; j<data[i].length; j++) {
 					if (j == 0) {
 						var seq = data[i][j];
@@ -19,9 +20,18 @@ function getChattingContent() {
 				str += '</li>'
 			} // End of for
 			$('.chat-area').html('<ul>'+str+'</ul>');
+            scrollFocus('.chat-area ul');
+            
 		} // End of success
 	}) // End of $.ajax
 } // ENd of get_ajax()
+
+
+
+// 스크롤을 맨 밑으로 내림
+function scrollFocus(target) {
+    $(target).scrollTop($(target).prop('scrollHeight'));
+}
 
 // 채팅내용 삭제 confirm
 function checkDeleteChatting(seq) {

@@ -7,14 +7,15 @@ function getRoomList() {
 		success:function(data) {
 			var str = '';
 			for (i=0; i<data.length; i++) {
-				str += '<li style="font-size:14px;">';
+				str += '<li>';
 
 				for (j=0; j<data[i].length; j++) {
 					if (j == 0) {
 						var seq = data[i][j];
 						str += '<a href="javascript:moveRoom('+seq+')">';
-					} 
-					str += data[i][j] + ' - ';
+					} else {
+						str += data[i][j] + ' - ';
+					}
 				}
 
 				str += '</a>';
@@ -104,7 +105,7 @@ function getRoomUserList() {
 		success:function(data) {
 			var str = '';
 			for (i=0; i<data.length; i++) {
-				str += '<li style="font-size:14px;">';
+				str += '<li>';
 				for (j=0; j<data[i].length; j++) {
 					str += data[i][j];
 				}
@@ -157,6 +158,11 @@ function putRoomCreate() {
 		url:"MODEL/putRoomCreate.php",
 		data:post_data,
 		success:function(data) {
+			if (data == 'fail') {
+				alert('중복된 방 이름이 있습니다.');
+				return;
+			}
+
 			$('input[name=roomName]').val('');
 			$('input[name=roomPasswordInput]').val('');
 			pageUpdate();
@@ -183,21 +189,21 @@ function checkJoinRoomLive() {
 	});
 }
 
-// 방이름 수정 confirm
-function checkModifyRoomName() {
-	if(confirm('방이름을 수정 하시겠습니까?')) {
-		putRoomNameModify();
+// 방속성 수정 confirm
+function checkModifyRoomSetting() {
+	if(confirm('방속성을 수정 하시겠습니까?')) {
+		putRoomSettingModify();
 	}
 }
 
-// 방이름 수정 실행
-function putRoomNameModify() {
+// 방속성 수정 실행
+function putRoomSettingModify() {
 
 	var post_data = $("form[name=main_form]").serialize();
 
 	$.ajax ({
 		type:"POST",
-		url:"MODEL/putRoomNameModify.php",
+		url:"MODEL/putRoomSettingModify.php",
 		data:post_data,
 		success:function(data) {
 			pageUpdate();
@@ -208,7 +214,9 @@ function putRoomNameModify() {
 
 			$('input[name=joinRoomName]').val(data);
 			$('input[name=ModifyRoomNameInput]').val(data);
+			$('input[name=ModifyRoomPasswordInput]').val('');
 			$('.joinRoomNameSpan').html(data);
+			alert('방 속성 수정이 완료되었습니다.');
 		}
 	});
 
