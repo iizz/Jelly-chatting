@@ -4,7 +4,7 @@
 $roomNumber = $_POST['joinRoomNumber'];
 
 $tableName = "roomList";
-$tableColumn = "seq, name";
+$tableColumn = "seq, name, reg_user_seq";
 $tableWhere = "AND seq = ".$roomNumber;
 $row = selectTable($tableName, $tableColumn, $tableWhere);
 

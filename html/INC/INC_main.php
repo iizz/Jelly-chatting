@@ -15,11 +15,12 @@ require_once($route['mainPath'].'INC/userFunc.php');
 // 데이터베이스 함수
 require_once($route['mainPath'].'INC/databaseFunc.php');
 
-// 박스 함수
-require_once($route['mainPath'].'INC/boxFunc.php');
-
 // 설정
 require_once($route['mainPath'].'INC/config.php');
+
+// VIEW 함수
+require_once($route['mainPath'].'INC/viewFunc.php');
+
 
 // [END] 인클라우드 파일들
 

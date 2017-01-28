@@ -93,8 +93,22 @@ function changeRoomNumber(seq) {
 			$('input[name=ModifyRoomNameInput]').val(data[1]);
 			$('.joinRoomNameSpan').html(data[1]);
 
-		}
-	});
+			// 룸 세팅 박스를 표시하거나 제거한다.
+			var reg_user_seq = data[2];
+			changeRoomSettingBox(reg_user_seq);
+
+		} // End of success:function
+	}); // End of $.ajax
+}
+
+// 룸 세팅 박스를 표시하거나 제거한다.
+function changeRoomSettingBox(reg_user_seq) {
+	var userSeq = $('input[name=userSeq]').val();
+	if (userSeq == reg_user_seq) {
+		$('.room-setting').css('display', 'block');
+	} else {
+		$('.room-setting').css('display', 'none');
+	}
 }
 
 // 방 접속자를 불러온다.
@@ -210,7 +224,11 @@ function putRoomSettingModify() {
 			if (data == 'fail') {
 				alert('중복된 방 이름이 있습니다.');
 				return;
+			} else if (data == 'error') {
+				alert('잘못된 접근방식 입니다.');
+				return;
 			}
+
 
 			$('input[name=joinRoomName]').val(data);
 			$('input[name=ModifyRoomNameInput]').val(data);

@@ -2,14 +2,17 @@
 <?
 
 $seq = $_POST['seq'];
-$password = $_POST['passwordValue'];
+$inputPassword = $_POST['passwordValue'];
 
 $tableName = "roomList";
-$tableColumn = "seq";
-$tableWhere = "AND seq = ".$seq." AND password= ".$password;
+$tableColumn = "password";
+$tableWhere = "AND seq = ".$seq;
 $row = selectTable($tableName, $tableColumn, $tableWhere);
+$roomPassword = $row[0][0];
 
-if ($row) {
+$inputPassword = crypt($inputPassword, $roomPassword);
+
+if ($inputPassword == $roomPassword) {
 	echo 'success';
 }
 

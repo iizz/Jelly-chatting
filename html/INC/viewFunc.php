@@ -43,6 +43,36 @@ function CreateRoomClassSelectBox($stateValue) {
 	return $selectBoxOption;
 }
 
+// 룸 세팅 박스 출력
+function getRoomSettingBoxDisplay() {
+	global $user;
+	$joinRoomSeq = $user['roomNumber'];
+	
+	// 룸의 마스터 SEQ 값을 가져온다.
+	$roomMasterSeq = getRoomMasterSeq($joinRoomSeq);
 
+	// 룸의 마스터인지 확인하여 Display의 CSS값을 리턴받는다.
+	$output = checkUserRoomMaster($roomMasterSeq);
+
+	return $output;
+}
+
+function getRoomMasterSeq($joinRoomSeq) {
+	$tableName = "roomList";
+	$tableColumn = "reg_user_seq";
+	$tableWhere = "AND seq = ".$joinRoomSeq;
+	$row = selectTable($tableName, $tableColumn, $tableWhere);
+
+	return $row[0][0];
+}
+
+function checkUserRoomMaster($roomMasterSeq) {
+	global $user;
+	if ($roomMasterSeq == $user['seq']) {
+		return 'block';
+	} else {
+		return 'none';
+	}
+}
 
 ?>

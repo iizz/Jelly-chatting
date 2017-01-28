@@ -28,4 +28,5 @@
 	<form name="main_form" method="POST">
 	<input type="hidden" name="joinRoomNumber" value="<?=$user['roomNumber']?>" /> <!-- 접속한 방 번호 -->
 	<input type="hidden" name="joinRoomName" value="<?=$user['roomName']?>" /> <!-- 접속한 방 이름 -->
-	<input type="text" name="userNickName" value="<?=$user['nickName']?>" style="float:right" /> <!-- 유저 닉네임 -->
+	<input type="hidden" name="userSeq" value="<?=$user['seq']?>" /> <!-- 유저 SEQ -->
+	<input type="hidden" name="userNickName" value="<?=$user['nickName']?>" /> <!-- 유저 닉네임 -->

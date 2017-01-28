@@ -31,18 +31,20 @@
             <span>
                 방 이름 :  <span class="joinRoomNameSpan"><?=$user['roomName']?></span>
             </span>
-            <span>
-                <input type="submit" onclick="checkDeleteRoom(); return false;" value="룸 삭제" class="btn btn-default" />
-            </span>
-            <span>
-                룸 이름 변경 :  <input type="text" name="ModifyRoomNameInput" value="<?=$user['roomName']?>" class="form-control" onkeypress="if(event.keyCode==13) {checkModifyRoomSetting(); return false;}" />
+						<div class="room-setting" style="display:<?=getRoomSettingBoxDisplay()?>">
+							<span>
+								룸 이름 변경 :  <input type="text" name="ModifyRoomNameInput" value="<?=$user['roomName']?>" class="form-control" onkeypress="if(event.keyCode==13) {checkModifyRoomSetting(); return false;}" />
 								<select name="modifyRoomOpen" class="form-control">
 									<option value="1">공개</option>
 									<option value="0">비공개</option>
 								</select>
+							</span>
+							<span>
 								<input type="password" name="ModifyRoomPasswordInput" class="form-control" onkeypress="if(event.keyCode==13) {checkModifyRoomSetting(); return false;}" />
-                <input type="submit" onclick="checkModifyRoomSetting(); return false;" value="룸속성 변경" class="btn btn-default" />
-            </span>
+								<input type="submit" onclick="checkModifyRoomSetting(); return false;" value="룸속성 변경" class="btn btn-default" />
+								<input type="submit" onclick="checkDeleteRoom(); return false;" value="룸 삭제" class="btn btn-default" />
+							</span>
+						</div>
         </div>
         <div class="chat-area"></div> <!-- 채팅 내용 -->
         <div>
@@ -59,3 +61,4 @@
         </div>
     </div>
 </div>
+

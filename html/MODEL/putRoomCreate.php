@@ -4,7 +4,7 @@ $reg_user_seq = $user['seq'];
 $room_class_seq = $_POST['roomClass'];
 $name = $_POST['roomName'];
 $open = $_POST['roomOpen'];
-$password = $_POST['roomPasswordInput'];
+$password = crypt($_POST['roomPasswordInput']);
 
 $tableName = "roomList";
 $tableColumn = "seq";
