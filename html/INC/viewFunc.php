@@ -10,7 +10,7 @@ function getChattingStateSelectBox() {
 	// SELECT BOX 출력 코드를 만든다.
 	$output = CreateChattingSelectBox($row);
 
-	echo $output;
+	return $output;
 }
 
 function CreateChattingSelectBox($stateValue) {
@@ -32,7 +32,7 @@ function getRoomClassSelectBox() {
 	// SELECT BOX 출력 코드를 만든다.
 	$output = CreateRoomClassSelectBox($row);
 
-	echo $output;
+	return $output;
 }
 
 function CreateRoomClassSelectBox($stateValue) {

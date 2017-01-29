@@ -3,8 +3,7 @@
 <?
 
 // 유저 connect 상태 업데이트
-$userSeq = $user['seq'];
-userConnectUpdate($userSeq);
+userConnectUpdate($user['seq']);
 
 $tableName = "userList";
 $tableColumn = "join_room_seq";

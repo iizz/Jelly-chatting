@@ -20,7 +20,7 @@ function getRoomList() {
 
 				str += '</a>';
 				//str += '<button onclick="checkDeleteRoom(' + seq + '); return false;">삭제</button>';
-				str += '</li>'
+				str += '</li><br />'
 			} // End of for
 			$('.room-list').html('<ul>'+str+'</ul>');
 		} // End of success
@@ -127,9 +127,16 @@ function getRoomUserList() {
 				str += '</li>'
 			} // End of for
 			$('.roomUserList').html('<ul>'+str+'</ul>');
+
+			updateRoomJoinUserCount(data);
 		} // End of success
 	}) // End of $.ajax
 } // ENd of getRoomList()
+
+function updateRoomJoinUserCount(value) {
+	var userCount = value.length;
+	$('.room-joinuser-count').html(" (" + userCount + ")");
+}
 
 // 방 삭제 confirm
 function checkDeleteRoom() {

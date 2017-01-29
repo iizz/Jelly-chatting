@@ -1,15 +1,19 @@
 <div class="chat-menu-box">
-    <div>
+    <div> <!-- 전체 접속자 -->
+			<span>전체접속자 : </span>
+			<span class="userTotalCount"><?=$user['userTotalCount']?></span>
+		</div>
+		<div>
         <div>방 리스트</div>
         <div class="room-list"></div> <!-- 방 리스트 -->
     </div>
     <div>
-        <div>방 접속자</div> 
+        <div>방 접속자<span class="room-joinuser-count"></span></div> 
         <div class="roomUserList"></div> <!-- 방 접속자 리스트 -->
     </div>
     <hr />
     <div>
-        <div>방 만들기</div> 
+        <div>방 만들기</div>
         <input type="text" name="roomName" onkeypress="if(event.keyCode==13) {checkCreateRoom(); return false;}" class="form-control" />
         <input type="password" name="roomPasswordInput" onkeypress="if(event.keyCode==13) {checkCreateRoom(); return false;}" class="form-control" />
         <select name="roomOpen" class="form-control">
@@ -17,7 +21,7 @@
             <option value="0">비공개</option>
         </select>
         <select name="roomClass" class="form-control">
-            <? getRoomClassSelectBox() ?>
+            <?=getRoomClassSelectBox()?>
         </select>
         <input type="submit" value="방만들기" onclick="checkCreateRoom(); return false;" class="btn btn-default" />
     </div>
@@ -51,7 +55,7 @@
             <div class="form-group">
                 <input type="text" value="<?=$user['nickName']?>" onkeypress="if(event.keyCode==13) {checkModifyUsername(); return false;}" name="userNameInput" class="form-control chat-nick" />
                 <select name="state" class="form-control chat-state">
-                <? getChattingStateSelectBox() ?>
+                <?=getChattingStateSelectBox()?>
                 </select>
                 <div class="clearfix"></div>
             </div>

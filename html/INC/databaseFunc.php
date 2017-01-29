@@ -44,7 +44,7 @@ function selectTable($name, $column="*", $where="", $order="REG_DATE DESC", $lim
 	if ($limit != "") {
 		$query .= $limit;
 	}
-	//echo $query."<br />"; exit;
+	//echo $query."<br />";
 
 	$result = mysqli_query($conn, $query);
 	$row = fetch_row($result);
@@ -82,12 +82,12 @@ function insertTable($name, $data) {
 }
 
 // 데이터베이스 UPDATE
-function updateTable($name, $data, $where="", $check="Y") {
+function updateTable($name, $data, $where="", $modifyCheck="Y") {
 	global $table;
 	$conn = dbConnect();
 
 	// [STR] 변경사항을 수정내역 테이블에 INSERT 한다
-	if ($check == "Y") { // $check 값이 Y일 경우에만 modify 테이블에 수정내역을 입력한다.
+	if ($modifyCheck == "Y") { // $modifyCheck 값이 Y일 경우에만 modify 테이블에 수정내역을 입력한다.
 		foreach ($data as $key => $val) {
 			modifyListUpdateTable($name, $key, $val, $where);
 		}

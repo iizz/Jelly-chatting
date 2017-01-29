@@ -9,5 +9,7 @@ $user['nickName'] = getUserName($user['seq']);
 $user['roomNumber'] = getUserRoomNumber($user['seq']);
 $user['roomName'] = getUserRoomName($user['roomNumber']);
 
+// 전체 유저 수 카운트 및 업데이트
+$user['userTotalCount'] = getUserTotalCount();
 
 ?>

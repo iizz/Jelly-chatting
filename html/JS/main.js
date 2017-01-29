@@ -14,4 +14,5 @@ function pageUpdate() {
 	getChattingContent();
 	getRoomList();
 	getRoomUserList();
+	getUserTotalCount();
 }

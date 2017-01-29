@@ -35,3 +35,15 @@ function checkUserNameFocus() {
 		}
 	});
 }
+
+// 전체 접속자 수를 변경
+function getUserTotalCount() {
+
+	$.ajax ({
+		type:"POST",
+		url:"MODEL/getUserTotalCount.php",
+		success:function(data) {
+			$('.userTotalCount').html(data);
+		}
+	});
+}

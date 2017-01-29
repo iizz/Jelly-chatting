@@ -98,4 +98,40 @@ function userConnectUpdate($seq) {
 	updateTable($tableName, $tableData, $tableWhere, "N");
 }
 
+// 접속중인 유저를 업데이트하고 카운트 한다.
+function getUserTotalCount() {
+	global $user;
+
+	// 자신의 connect, lass_access 값을 업데이트 한다.
+	userConnectUpdate($user['seq']);
+
+	// 접속중인 유저들만 connect 값을 1로 한다.
+	updateUserConnect();
+
+	// connect 값이 1인 접속중인 유저들의 수를 가져온다.
+	$connectCount = getConnectUserCount();
+	return $connectCount;
+}
+
+function updateUserConnect() {
+	global $defaultTime;
+
+	$time = date("Y-m-d H:i:s", time()-$defaultTime['checkLastTime']);
+
+	$tableName = "userList";
+	$tableData['connect'] = "";
+	$tableWhere  = " AND last_access	< '".$time."' ";
+	$tableWhere .= " OR last_access is null ";
+	$tableModifyCheck = "N";
+	updateTable($tableName, $tableData, $tableWhere, $tableModifyCheck);
+}
+
+function getConnectUserCount() {
+	$tableName = "userList";
+	$tableWhere = "AND connect = 1";
+	$row = countTable($tableName, $tableWhere);
+
+	return $row;
+}
+
 ?>
