@@ -19,7 +19,7 @@ function getChattingContent() {
 				//str += '<button onclick="checkDeleteChatting(' + seq + '); return false;">삭제</button>';
 				str += '</li>'
 			} // End of for
-			$('.chat-area').html('<ul>'+str+'</ul>');
+			$('.chat-area').html('<ul class="mCustomScrollbar">'+str+'</ul>');
             scrollFocus('.chat-area ul');
             
 		} // End of success
