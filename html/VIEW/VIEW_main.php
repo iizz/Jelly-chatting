@@ -49,11 +49,7 @@
 								<input type="submit" onclick="checkDeleteRoom(); return false;" value="룸 삭제" class="btn btn-default" />
 							</span>
 						</div>
-<<<<<<< HEAD
           <button onclick="pageUpdate();" class="btn btn-default">Update</button> <!-- 수동 업데이트 -->
-=======
-          <button onclick="pageUpdate()" class="btn btn-default">Update</button>
->>>>>>> 41af6df4a4cac347aaa5f8977efefa6a3aaecdc2
         </div>
         <div class="chat-area"></div> <!-- 채팅 내용 -->
         <div>
