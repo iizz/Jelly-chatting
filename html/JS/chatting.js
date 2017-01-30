@@ -20,7 +20,11 @@ function getChattingContent() {
 				str += '</li>'
 			} // End of for
 			$('.chat-area').html('<ul class="mCustomScrollbar">'+str+'</ul>');
+<<<<<<< HEAD
 			scrollFocus('.chat-area ul');
+=======
+            scrollFocus('.chat-area ul');
+>>>>>>> 41af6df4a4cac347aaa5f8977efefa6a3aaecdc2
             
 		} // End of success
 	}) // End of $.ajax
