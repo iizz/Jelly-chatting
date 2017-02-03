@@ -1,4 +1,4 @@
-<div class="chat-menu-box">
+<div class="side-menu-wrap chat-menu-box">
     <div> <!-- 전체 접속자 -->
 			<span>전체접속자 : </span>
 			<span class="userTotalCount"><?=$user['userTotalCount']?></span>
