@@ -10,7 +10,7 @@
  */
 (function() {
 
-	var bodyEl = document.body,
+	var htmlEl = document.body.parentElement,
 		content = document.querySelector( '.content-wrap' ),
 		openbtn = document.getElementById( 'open-button' ),
 		closebtn = document.getElementById( 'close-button' ),
@@ -27,20 +27,20 @@
 		}
 
 		// close the menu element if the target it´s not the menu element or one of its descendants..
-		content.addEventListener( 'click', function(ev) {
-			var target = ev.target;
-			if( isOpen && target !== openbtn ) {
-				toggleMenu();
-			}
-		} );
+//		content.addEventListener( 'click', function(ev) {
+//			var target = ev.target;
+//			if( isOpen && target !== openbtn ) {
+//				toggleMenu();
+//			}
+//		} );
 	}
 
 	function toggleMenu() {
 		if( isOpen ) {
-			classie.remove( bodyEl, 'show-menu' );
+			classie.remove( htmlEl, 'show-menu' );
 		}
 		else {
-			classie.add( bodyEl, 'show-menu' );
+			classie.add( htmlEl, 'show-menu' );
 		}
 		isOpen = !isOpen;
 	}
