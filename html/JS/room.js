@@ -12,16 +12,22 @@ function getRoomList() {
 					if (j == 0) {
 						var seq = data[i][j];
 						str += '<a href="javascript:moveRoom('+seq+')">';
-					} else {
-						str += data[i][j] + ' - ';
+					} else if (j == 1) {
+						str += data[i][j];
+					} else if (j == 2) {
+						str += " ("+data[i][j]+")";
+					} else if (j == 3) {
+						str += '<span style="float:right;">'+data[i][j] + '</span><span class="clearfix"></span>';
+					} else if (j == 4) {
+						str += data[i][j];
 					}
 				}
 
 				str += '</a>';
 				//str += '<button onclick="checkDeleteRoom(' + seq + '); return false;">삭제</button>';
-				str += '</li><br />'
+				str += '</li>'
 			} // End of for
-			$('.room-list').html('<ul>'+str+'</ul>');
+			$('.room-list').html('<ul class="room-item">'+str+'</ul>');
 		} // End of success
 	}) // End of $.ajax
 } // ENd of getRoomList()
@@ -95,6 +101,9 @@ function changeRoomNumber(seq) {
 			// 룸 세팅 박스를 표시하거나 제거한다.
 			var reg_user_seq = data[2];
 			changeRoomSettingBox(reg_user_seq);
+			
+			// 좌측 사이드 메뉴를 닫는다.
+			$("html").removeClass("show-menu");
 
 		} // End of success:function
 	}); // End of $.ajax
@@ -187,6 +196,9 @@ function putRoomCreate() {
 			$('input[name=roomPasswordInput]').val('');
 			pageUpdate();
 			changeRoomNumber(data);
+			$('#roomCreateModal').modal('hide');
+			$("html").removeClass("show-menu");
+			$("html").removeClass("show-menu");
 		}
 	});
 

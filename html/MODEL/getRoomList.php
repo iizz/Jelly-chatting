@@ -6,8 +6,8 @@ $time = date("Y-m-d H:i:s", time()-$defaultTime['checkLastTime']);
 
 // 방 목록과 유저리스트를 INNER JOIN 하여 방 리스트 + 방 접속자 를 가져온다.
 
-$query  = " SELECT E.*, F.count FROM ";
-$query .= " (SELECT C.seq, room_name, reg_name, name as class_name, IF(open=1,'공개','비공개') as open FROM ";
+$query  = " SELECT E.seq, E.room_name, F.count, E.open, E.reg_name FROM ";
+$query .= " (SELECT C.seq, room_name, reg_name, IF(open=1,'공개','비공개') as open FROM ";
 $query .= " (SELECT A.seq, A.name as room_name, B.name as reg_name, A.open as open, A.room_class_seq FROM jelting_roomList A ";
 $query .= " LEFT JOIN jelting_userList B On A.reg_user_seq = B.seq WHERE (A.del_flag is null OR A.del_flag != 'Y')) C ";
 $query .= " LEFT JOIN jelting_roomClass D On C.room_class_seq = D.seq) E ";

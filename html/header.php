@@ -8,18 +8,14 @@
 	<link href="https://fonts.googleapis.com/css?family=Waiting+for+the+Sunrise" rel="stylesheet" />
 	<!-- //font -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" />
-  <link rel="stylesheet" href="https://malihu.github.io/custom-scrollbar/jquery.mCustomScrollbar.min.css" />
-  <link rel="stylesheet" href="CSS/menu_bubble.css?<?=filemtime('CSS/menu_bubble.css') ?>" type="text/css" />
 	<link rel="stylesheet" href="CSS/app.css?<?=filemtime('CSS/app.css') ?>" type="text/css" />
 	<script src="https://code.jquery.com/jquery-3.1.1.js" integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA=" crossorigin="anonymous"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-  <script src="http://malihu.github.io/custom-scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
 	<script src="JS/main.js?<?=filemtime('JS/main.js') ?>"></script> <!-- 기본 스크립트 -->
 	<script src="JS/userInfo.js?<?=filemtime('JS/userInfo.js') ?>"></script> <!-- 유저 -->
 	<script src="JS/room.js?<?=filemtime('JS/room.js') ?>"></script> <!-- 룸 -->
 	<script src="JS/chatting.js?<?=filemtime('JS/chatting.js') ?>"></script> <!-- 채팅내용 -->
-	<script src="JS/side-slide/js/classie.js?<?=filemtime('JS/side-slide/js/classie.js') ?>"></script>
-	<script src="JS/side-slide/js/main.js?<?=filemtime('JS/side-slide/js/main.js') ?>"></script>
+	<script src="JS/app.js?<?=filemtime('JS/app.js') ?>"></script> <!-- 가람 스크립트 -->
 </head>
 
 <script type="text/javascript">

@@ -11,6 +11,10 @@ function getChattingContent() {
 				for (j=0; j<data[i].length; j++) {
 					if (j == 0) {
 						var seq = data[i][j];
+					} else if (j == 3) {
+						str += data[i][j] + '<br />';
+					} else if (j == 4) {
+						str += data[i][j];
 					} else {
 						str += data[i][j] + ' - ';
 					}
@@ -19,7 +23,7 @@ function getChattingContent() {
 				//str += '<button onclick="checkDeleteChatting(' + seq + '); return false;">삭제</button>';
 				str += '</li>'
 			} // End of for
-			$('.chat-area').html('<ul class="mCustomScrollbar">'+str+'</ul>');
+			$('.chat-area').html('<ul class="mCustomScrollbar chat-item">'+str+'</ul>');
 			scrollFocus('.chat-area ul');
             
 		} // End of success
@@ -58,6 +62,10 @@ function putChattingDelete(seq) {
 
 // 채팅내용 입력
 function putChattingContent() {
+	
+	if ($("input[name=content]").val() == "") {
+		return;
+	}
 
 	var post_data = $("form[name=main_form]").serialize();
 

@@ -25,11 +25,11 @@ button {
 a,
 a:hover,
 a:focus {
-    color: #000;
+	color: #000;
 }
 a:hover,
 a:focus {
-    text-decoration: underline;
+	text-decoration: underline;
 }
 
 ul {
@@ -42,8 +42,8 @@ body {
 	font-family: 'Noto Sans KR', sans-serif;
 	font-size: 14px;
 	background-color: #fffa7d;
-/*	background-color: #9ae4ff;*/
-/*	background-color: #ffb9c5;*/
+	/*	background-color: #9ae4ff;*/
+	/*	background-color: #ffb9c5;*/
 }
 
 .container {
@@ -51,12 +51,12 @@ body {
 	max-width: 1500px;
 	padding: 0;
 	margin: 0 auto;
-/*	background-color: #9ae4ff;*/
+	/*	background-color: #9ae4ff;*/
 }
 
 .container .col-xs-12 {
-    padding-right: 0;
-    padding-left: 0;
+	padding-right: 0;
+	padding-left: 0;
 }
 
 .header {
@@ -85,8 +85,8 @@ body {
 
 /* 우측 채팅창 */
 .chat-box {
-	width: 80%;
-    margin: 0 auto;
+	width: 70%;
+	margin: 0 auto;
 }
 
 .chat-box {
@@ -96,40 +96,66 @@ body {
 }
 
 .chat-area {
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 20px;
-    margin: 20px 0;
+	padding: 20px;
+	border: 1px solid #ccc;
+	border-radius: 20px;
+	margin: 20px 0;
 }
 
 .chat-area ul {
-    height: 400px;
-    overflow: auto;
+	height: 400px;
+	overflow: auto;
 }
 
 .chat-area ul li {
-    line-height: 2;
+	line-height: 2;
 }
 
 .chat-nick,
 .chat-state,
 .chat-content,
 .chat-btn {
-    float: left;
-    margin-right: 1%;
+	float: left;
+	margin-right: 1%;
 }
 
 .chat-nick,
 .chat-state {
-    width: 120px;
+	width: 120px;
 }
 
 .chat-content {
-    width: 89%;
+	width: 89%;
 }
 .chat-btn {
-    width: 10%;
-    margin-right: 0;
+	width: 10%;
+	margin-right: 0;
+}
+
+.room-title {
+	font-size: 1.5em;
+	font-weight: bold;
+}
+
+.chat-item li {
+	background-color: antiquewhite;
+	padding: 5px 10px;
+	border-radius: 10px;
+	margin: 10px 15px 10px 0;
+}
+
+.room-item li {
+	background-color: aquamarine;
+	border-radius: 10px;
+	margin: 10px 0;
+}
+.room-item li:hover {
+	opacity: .8;
+}
+
+.room-item li a {
+	display: block;
+	padding: 10px;
 }
 
 
@@ -141,13 +167,14 @@ body {
 
 /* 좌측 메뉴 */
 .chat-menu-box {
-/*    display: none;*/
-    width: 20%;
-    height: 100%;
-    background-color: #fff;
-    position: fixed;
-    top: 0;
-    left: 0;
+	/*    display: none;*/
+	width: 20%;
+	height: 100%;
+	background-color: #fff;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 1;
 }
 
 
@@ -237,24 +264,7 @@ body {
 
 
 
-/* 커스텀 스크롤바 */
-.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar {
-  width: 10px;
-  background-color: #fffa7d;
-/*  opacity: 0;*/
-  transition: .4s ease;
-}
 
-.mCSB_scrollTools .mCSB_dragger:hover .mCSB_dragger_bar,
-.mCSB_scrollTools .mCSB_dragger.mCSB_dragger_onDrag .mCSB_dragger_bar,
-.mCSB_scrollTools .mCSB_dragger:active .mCSB_dragger_bar {
-  background-color: #fffa7d;
-  opacity: 1;
-}
-
-.mCSB_scrollTools .mCSB_draggerRail {
-  background-color: transparent;
-}
 
 
 
@@ -267,11 +277,9 @@ body {
 
 
 /* 사이드 메뉴 */
-html, 
-body, 
-.container, 
-.content-wrap {
-	overflow: auto;
+html.show-menu, 
+.show-menu body {
+	overflow: hidden;
 	width: 100%;
 	height: 100%;
 }
@@ -281,12 +289,13 @@ body,
 }
 
 .menu-wrap a {
-	color: #b8b7ad;
+	color: #333;
 }
 
 .menu-wrap a:hover,
 .menu-wrap a:focus {
-	color: #c94e50;
+	color: #000;
+	text-decoration: none;
 }
 
 .content-wrap {
@@ -294,6 +303,20 @@ body,
 	-webkit-overflow-scrolling: touch;
 	-webkit-transition: -webkit-transform 0.4s;
 	transition: transform 0.4s;
+}
+
+.contents-curtains {
+	display: none;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, .3);
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 1;
+}
+.show-menu .contents-curtains {
+	display: block;
 }
 
 .content {
@@ -319,7 +342,9 @@ body,
 
 /* Menu Button */
 .menu-button {
-	position: fixed;
+	position: absolute;
+	top: 0;
+	left: 0;
 	z-index: 1000;
 	margin: 1em;
 	padding: 0;
@@ -384,15 +409,18 @@ body,
 
 /* Menu */
 .menu-wrap {
-	position: absolute;
-	z-index: 1001;
-	width: 280px;
+	width: 20%;
+	min-width: 280px;
 	height: 100%;
 	font-size: 1.15em;
-	-webkit-transform: translate3d(-280px,0,0);
-	transform: translate3d(-280px,0,0);
+	overflow: auto;
+	padding: 20px;
+	position: absolute;
+	-webkit-transform: translate3d(-100%,0,0);
+	transform: translate3d(-100%,0,0);
 	-webkit-transition: -webkit-transform 0.4s;
 	transition: transform 0.4s;
+	z-index: 1001;
 }
 
 .menu {
@@ -473,9 +501,38 @@ body,
 
 
 
+/* 채팅방 생성 팝업 */
+.rc-modal {
+	
+}
 
+.rc-modal .modal-dialog {
+	width: 350px;
+	margin: 100px auto;
+}
 
+.rc-modal input[type=text],
+.rc-modal input[type=password],
+.rc-modal select {
+	width: 100%;
+	margin: 10px auto;
+}
 
+.rc-pw {
+	display: none;
+}
+
+.rc-btn {
+	width: 100%;
+	background-color: darkturquoise;
+	color: white;
+	font-size : 1.1em;
+}
+
+.rc-btn:hover {
+	opacity: .6;
+	color: white;
+}
 
 
 
@@ -510,18 +567,24 @@ body,
     width: 100%;
     padding: 0 15px;
   }
-  
+
   .chat-box {
     width: 100%;
     padding: 40px 20px;
   }
-  
-  
-  
-  
-  
-  
-  
-  
-  
+	
+	.menu-button {
+		margin: 15px 5px;
+	}
+	
+	.menu-wrap {
+		width: 280px;
+	}
+
+	
+
+
+
+
+
 }

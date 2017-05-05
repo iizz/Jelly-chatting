@@ -2,14 +2,8 @@ $(document).ready(function() {
 	pageUpdate();
 	checkUserNameFocus(); // 유저네임 변경 INPUT 포커스 확인
 	setInterval(function() {
-		pageUpdate();
-	}, 4000);
-  
-  $(".chat-area ul").mCustomScrollbar({
-    advanced:{
-      updateOnContentResize: true
-    }
-  });
+		//chattingUpdate();
+	}, 3000);
 });
 
 // AJAX 를 호출해서 페이지를 업데이트 한다.
@@ -19,4 +13,8 @@ function pageUpdate() {
 	getRoomList(); // 룸 리스트를 불러온다.
 	getRoomUserList(); // 룸 접속 유저 리스트를 불러온다.
 	getUserTotalCount(); // 젤팅 전체 접속자를 불러온다.
+}
+
+function chattingUpdate() {
+	getChattingContent(); // 채팅 내용을 불러온다.
 }

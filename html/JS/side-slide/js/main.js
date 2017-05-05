@@ -10,7 +10,7 @@
  */
 (function() {
 
-	var htmlEl = document.body.parentElement,
+	var bodyEl = document.body,
 		content = document.querySelector( '.content-wrap' ),
 		openbtn = document.getElementById( 'open-button' ),
 		closebtn = document.getElementById( 'close-button' ),
@@ -37,10 +37,10 @@
 
 	function toggleMenu() {
 		if( isOpen ) {
-			classie.remove( htmlEl, 'show-menu' );
+			classie.remove( bodyEl, 'show-menu' );
 		}
 		else {
-			classie.add( htmlEl, 'show-menu' );
+			classie.add( bodyEl, 'show-menu' );
 		}
 		isOpen = !isOpen;
 	}
