@@ -1,4 +1,3 @@
-
 // 방 목록을 불러온다.
 function getRoomList() {
 	$.ajax({
