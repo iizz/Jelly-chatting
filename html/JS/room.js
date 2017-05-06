@@ -165,6 +165,7 @@ function putRoomDelete() {
 		data:post_data,
 		success:function(data) {
 			pageUpdate();
+			$('#roomModifyModal').modal('hide');
 		}
 	});
 
@@ -191,13 +192,12 @@ function putRoomCreate() {
 				alert('중복된 방 이름이 있습니다.');
 				return;
 			}
-
-			$('input[name=roomName]').val('');
-			$('input[name=roomPasswordInput]').val('');
+			
 			pageUpdate();
 			changeRoomNumber(data);
+			$('input[name=roomName]').val('');
+			$('input[name=roomPasswordInput]').val('');
 			$('#roomCreateModal').modal('hide');
-			$("html").removeClass("show-menu");
 			$("html").removeClass("show-menu");
 		}
 	});
@@ -247,13 +247,27 @@ function putRoomSettingModify() {
 				return;
 			}
 
-
 			$('input[name=joinRoomName]').val(data);
 			$('input[name=ModifyRoomNameInput]').val(data);
 			$('input[name=ModifyRoomPasswordInput]').val('');
 			$('.joinRoomNameSpan').html(data);
-			alert('방 속성 수정이 완료되었습니다.');
+			$('#roomModifyModal').modal('hide');
 		}
 	});
 
+}
+
+// 이동하는 방의 수정 버튼을 활성화 할지 확인 한다.
+function roomModifyBtnCheck() {
+	$.ajax ({
+		type:"POST",
+		url:"MODEL/getRoomModifyBtn.php",
+		success:function(data) {
+			if (data == 'block') {
+				$(".rc-modify-btn").css("display", "block");
+			} else {
+				$(".rc-modify-btn").css("display", "none");
+			}
+		}
+	});
 }

@@ -57,6 +57,7 @@ function getRoomSettingBoxDisplay() {
 	return $output;
 }
 
+// 룸의 마스터 seq 값을 가져온다.
 function getRoomMasterSeq($joinRoomSeq) {
 	$tableName = "roomList";
 	$tableColumn = "reg_user_seq";
@@ -66,6 +67,7 @@ function getRoomMasterSeq($joinRoomSeq) {
 	return $row[0][0];
 }
 
+// 마스터인지 비교해서 맞으면 버튼을 block 해준다.
 function checkUserRoomMaster($roomMasterSeq) {
 	global $user;
 	if ($roomMasterSeq == $user['seq']) {

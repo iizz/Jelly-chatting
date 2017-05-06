@@ -13,8 +13,10 @@ function pageUpdate() {
 	getRoomList(); // 룸 리스트를 불러온다.
 	getRoomUserList(); // 룸 접속 유저 리스트를 불러온다.
 	getUserTotalCount(); // 젤팅 전체 접속자를 불러온다.
+	roomModifyBtnCheck(); // 이동하는 방의 수정 버튼을 만들지 확인 한다.
 }
 
+// 채팅 내용만 UPDATE 한다.
 function chattingUpdate() {
 	getChattingContent(); // 채팅 내용을 불러온다.
 }

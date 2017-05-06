@@ -28,12 +28,21 @@ $(document).ready(function() {
 	
 	
 	//
-	$(".rc-open").change( function() {
+	$(".modifyRoomOpen").change( function() {
 		if( $(this).val() == 0 ) {
 			$(".rc-pw").css("display", "block");
 		}
 		else {
 			$(".rc-pw").css("display", "none");
+		}
+	});
+
+	$(".rc-open").change( function() {
+		if( $(this).val() == 0 ) {
+			$(".rc-modify-pw").css("display", "block");
+		}
+		else {
+			$(".rc-modify-pw").css("display", "none");
 		}
 	});
 	
