@@ -167,7 +167,6 @@ body {
 	/*    display: none;*/
 	width: 20%;
 	height: 100%;
-	background-color: #fff;
 	position: fixed;
 	top: 0;
 	left: 0;
@@ -423,7 +422,6 @@ html.show-menu,
 .menu {
 	position: relative;
 	z-index: 1000;
-	padding: 3em 1em 0;
 }
 
 .menu,
@@ -462,7 +460,8 @@ html.show-menu,
 	height: 100%;
 	top: 0;
 	right: 0;
-	fill: #373a47;
+	fill: #fff;
+	overflow: hidden;
 }
 
 /* Shown menu */
@@ -494,6 +493,14 @@ html.show-menu,
 	opacity: 1;
 	-webkit-transition: opacity 0.4s;
 	transition: opacity 0.4s;
+}
+
+.room-list {
+	overflow: auto;
+}
+
+.room-item {
+	height: 500px;
 }
 
 

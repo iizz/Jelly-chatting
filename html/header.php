@@ -16,13 +16,10 @@
 	<script src="JS/room.js?<?=filemtime('JS/room.js') ?>"></script> <!-- 룸 -->
 	<script src="JS/chatting.js?<?=filemtime('JS/chatting.js') ?>"></script> <!-- 채팅내용 -->
 	<script src="JS/app.js?<?=filemtime('JS/app.js') ?>"></script> <!-- 가람 스크립트 -->
+	<script src="JS/side-slide/js/snap.svg-min.js"></script>
+	<script src="JS/side-slide/js/classie.js"></script>
+	<script src="JS/side-slide/js/main4.js?<?=filemtime('JS/side-slide/js/main4.js') ?>"></script>
 </head>
-
-<script type="text/javascript">
-
-
-</script>	
-
 <body>
 	<div class="header">
 		<h1><a href="/">Jelly Chatting</a></h1>

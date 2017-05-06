@@ -13,21 +13,9 @@
  *************************************************************************** */
 
 $(document).ready(function() {
+
 	
-	//
-	$(".menu-button").click( function() {
-		$("html").addClass("show-menu");
-	});
-	
-	$(".contents-curtains").click( function() {
-		$("html").removeClass("show-menu");
-	});
-	
-	
-	
-	
-	
-	//
+	// 채팅방 만들기 기능 비밀번호 input 창 Show and Hide
 	$(".modifyRoomOpen").change( function() {
 		if( $(this).val() == 0 ) {
 			$(".rc-pw").css("display", "block");
@@ -37,6 +25,7 @@ $(document).ready(function() {
 		}
 	});
 
+	// 채팅방 수정 기능 비밀번호 input 창 Show and Hide
 	$(".rc-open").change( function() {
 		if( $(this).val() == 0 ) {
 			$(".rc-modify-pw").css("display", "block");
@@ -45,6 +34,7 @@ $(document).ready(function() {
 			$(".rc-modify-pw").css("display", "none");
 		}
 	});
+	
 	
 	
 	

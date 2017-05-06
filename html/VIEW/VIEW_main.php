@@ -1,14 +1,21 @@
 <div class="menu-wrap chat-menu-box">
-	<button type="button" class="btn rc-btn" data-toggle="modal" data-target="#roomCreateModal">
-		채팅방 만들기
-	</button>
-	<div> <!-- 전체 접속자 -->
-		<span>전체접속자 : </span>
-		<span class="userTotalCount"><?= $user['userTotalCount'] ?></span>
+	<div class="menu">
+		<button type="button" class="btn rc-btn" data-toggle="modal" data-target="#roomCreateModal">
+			채팅방 만들기
+		</button>
+		<div> <!-- 전체 접속자 -->
+			<span>전체접속자 : </span>
+			<span class="userTotalCount"><?= $user['userTotalCount'] ?></span>
+		</div>
+		<div>
+			<div>채팅방 리스트</div>
+			<div class="room-list"></div> <!-- 방 리스트 -->
+		</div>
 	</div>
-	<div>
-		<div>채팅방 리스트</div>
-		<div class="room-list"></div> <!-- 방 리스트 -->
+	<div class="morph-shape" id="morph-shape" data-morph-open="M-7.312,0H15c0,0,66,113.339,66,399.5C81,664.006,15,800,15,800H-7.312V0z;M-7.312,0H100c0,0,0,113.839,0,400c0,264.506,0,400,0,400H-7.312V0z">
+		<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 100 800" preserveAspectRatio="none">
+			<path d="M-7.312,0H0c0,0,0,113.839,0,400c0,264.506,0,400,0,400h-7.312V0z"/>
+		</svg>
 	</div>
 </div>
 <div class="contents-curtains"></div>
@@ -41,7 +48,7 @@
 		</div>
 	</div>
 </div>
-<a href="javascript:void(0)" class="menu-button"></a>
+<button type="button" class="menu-button" id="open-button"></button>
 <div class="container">
 	<div class="chat-box">
 		<div>
