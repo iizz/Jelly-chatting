@@ -3,7 +3,7 @@ function getChattingContent() {
 	$.ajax({
 		url:'MODEL/getChattingContent.php',
 		dataType:'json',
-        async: false,
+		//async: false,
 		success:function(data) {
 			var str = '';
 			for (i=0; i<data.length; i++) {

@@ -5,7 +5,9 @@ function getChattingStateSelectBox() {
 	// SELECT BOX 만들 값을 가져온다.
 	$tableName = "chatState";
 	$tableColumn = "seq, name";
-	$row = selectTable($tableName, $tableColumn);
+	$tableWhere = "";
+	$tableOrder = "SEQ ASC";
+	$row = selectTable($tableName, $tableColumn, $tableWhere, $tableOrder);
 
 	// SELECT BOX 출력 코드를 만든다.
 	$output = CreateChattingSelectBox($row);

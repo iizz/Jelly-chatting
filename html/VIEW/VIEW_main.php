@@ -27,7 +27,7 @@
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 			</div>
 			<div class="modal-body">
-				<select name="roomOpen" class="form-control rc-open">
+				<select name="roomOpen" class="form-control rc-open rc-input">
 					<option value="1">공개</option>
 					<option value="0">비공개</option>
 				</select>
@@ -59,7 +59,7 @@
 				<span class="joinRoomNameSpan"><?= $user['roomName'] ?></span>
 				<span class="room-joinuser-count"></span>
 			</div>
-			<div class="rc-modify-btn pull-right" style="display:<?= getRoomSettingBoxDisplay() ?>">
+			<div class="rc-modify-btn" style="display:<?= getRoomSettingBoxDisplay() ?>">
 				<button type="button" class="btn btn-default" aria-label="Left Align" data-toggle="modal" data-target="#roomModifyModal">
 					<span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
 				</button>
@@ -67,6 +67,13 @@
 			<div class="clearfix"></div>
 			<div> 
 				<div class="roomUserList"></div> <!-- 방 접속자 리스트 -->
+				<div class="changeChattingUpdate">
+					<button type="button" class="btn btn-default" onclick="changeChattingUpdate();">
+						<span class="glyphicon glyphicon-play" style="display:none"></span>
+						<span class="glyphicon glyphicon-pause"></span>
+					</button>
+				</div>
+				<div class="clearfix"></div>
 			</div>
 		</div>
 		<div class="chat-area"></div> <!-- 채팅 내용 -->

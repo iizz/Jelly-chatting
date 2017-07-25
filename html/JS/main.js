@@ -1,8 +1,15 @@
 $(document).ready(function() {
 	pageUpdate();
 	checkUserNameFocus(); // 유저네임 변경 INPUT 포커스 확인
+	if (getCookie("chattingUpdate")) {
+		changeChattingUpdateIcon(0);
+	} else {
+		changeChattingUpdateIcon(1);
+	}
 	setInterval(function() {
-		//chattingUpdate();
+		if (!getCookie("chattingUpdate")) {
+			chattingUpdate();
+		}
 	}, 3000);
 });
 
@@ -20,3 +27,5 @@ function pageUpdate() {
 function chattingUpdate() {
 	getChattingContent(); // 채팅 내용을 불러온다.
 }
+
+

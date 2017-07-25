@@ -538,12 +538,17 @@ html.show-menu,
 	color: white;
 }
 
+.roomUserList {
+	float:left;
+}
 
+.changeChattingUpdate {
+	float:right;
+}
 
-
-
-
-
+.rc-modify-btn > .btn-default {
+	margin-left:10px;
+}
 
 
 
@@ -586,9 +591,4 @@ html.show-menu,
 	}
 
 	
-
-
-
-
-
 }
